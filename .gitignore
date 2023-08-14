@@ -1,15 +1,516 @@
-# Godot 4+ specific ignores
-.godot/
+extends KinematicBody2D
 
-# Godot-specific ignores
-.import/
-export.cfg
-export_presets.cfg
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
 
-# Imported translations (automatically generated from CSV files)
-*.translation
+# Abilities
+var can_jump = true
+var can_shoot = true
 
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
+# Character movement
+var velocity = Vector2()
+
+func _physics_process(delta):
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+
+	# Move left/right
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x += MOVE_SPEED
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	# Implement your shooting logic here
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+	pass
+
+# Called when the character collides with a floor
+func _on_FloorDetector_area_entered(area):
+	can_jump = true
+
+# Called when the character leaves a floor
+func _on_FloorDetector_area_exited(area):
+	can_jump = false
+}
+
+extends KinematicBody2D
+
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
+
+# Abilities
+var can_jump = true
+var can_shoot = true
+
+# Character movement
+var velocity = Vector2()
+
+func _physics_process(delta):
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+
+	# Move left/right
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x += MOVE_SPEED
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	# Implement your shooting logic here
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+	pass
+
+# Called when the character collides with a floor
+func _on_FloorDetector_area_entered(area):
+	can_jump = true
+
+# Called when the character leaves a floor
+func _on_FloorDetector_area_exited(area):
+	can_jump = false
+}
+
+
+extends KinematicBody2D
+
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
+
+# Abilities
+var can_jump = true
+var can_shoot = true
+
+# Character movement
+var velocity = Vector2()
+
+func _physics_process(delta):
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+
+	# Move left/right
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x += MOVE_SPEED
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	# Implement your shooting logic here
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+	pass
+
+# Called when the character collides with a floor
+func _on_FloorDetector_area_entered(area):
+	can_jump = true
+
+# Called when the character leaves a floor
+func _on_FloorDetector_area_exited(area):
+	can_jump = false
+}
+
+
+extends KinematicBody2D
+
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
+
+# Abilities
+var can_jump = true
+var can_shoot = true
+
+# Character movement
+var velocity = Vector2()
+
+func _physics_process(delta):
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+
+	# Move left/right
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x += MOVE_SPEED
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	# Implement your shooting logic here
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+	pass
+
+# Called when the character collides with a floor
+func _on_FloorDetector_area_entered(area):
+	can_jump = true
+
+# Called when the character leaves a floor
+func _on_FloorDetector_area_exited(area):
+	can_jump = false
+}
+
+
+extends KinematicBody2D
+
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
+
+# Abilities
+var can_jump = true
+var can_shoot = true
+
+# Character movement
+var velocity = Vector2()
+
+func _physics_process(delta):
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+
+	# Move left/right
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x += MOVE_SPEED
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	# Implement your shooting logic here
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+	pass
+
+# Called when the character collides with a floor
+func _on_FloorDetector_area_entered(area):
+	can_jump = true
+
+# Called when the character leaves a floor
+func _on_FloorDetector_area_exited(area):
+	can_jump = false
+}
+
+
+extends KinematicBody2D
+
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
+
+# Abilities
+var can_jump = true
+var can_shoot = true
+
+# Character movement
+var velocity = Vector2()
+
+func _physics_process(delta):
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+
+	# Move left/right
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x += MOVE_SPEED
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	# Implement your shooting logic here
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+	pass
+
+# Called when the character collides with a floor
+func _on_FloorDetector_area_entered(area):
+	can_jump = true
+
+# Called when the character leaves a floor
+func _on_FloorDetector_area_exited(area):
+	can_jump = false
+}
+
+
+extends KinematicBody2D
+
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
+
+# Abilities
+var can_jump = true
+var can_shoot = true
+
+# Character movement
+var velocity = Vector2()
+
+func _physics_process(delta):
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+
+	# Move left/right
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x += MOVE_SPEED
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	# Implement your shooting logic here
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+	pass
+
+# Called when the character collides with a floor
+func _on_FloorDetector_area_entered(area):
+	can_jump = true
+
+# Called when the character leaves a floor
+func _on_FloorDetector_area_exited(area):
+	can_jump = false
+}
+
+
+extends KinematicBody2D
+
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
+
+# Abilities
+var can_jump = true
+var can_shoot = true
+
+# Character movement
+var velocity = Vector2()
+
+func _physics_process(delta):
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+
+	# Move left/right
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x += MOVE_SPEED
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	# Implement your shooting logic here
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+	pass
+
+# Called when the character collides with a floor
+func _on_FloorDetector_area_entered(area):
+	can_jump = true
+
+# Called when the character leaves a floor
+func _on_FloorDetector_area_exited(area):
+	can_jump = false
+}
+
+
+extends KinematicBody2D
+
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
+
+# Abilities
+var can_jump = true
+var can_shoot = true
+
+# Character movement
+#var velocity = Vector2()
+
+#func _physics_process(delta):
+	# Apply gravity
+	#velocity.y += GRAVITY * delta
+
+	# Move left/right
+	#theres no way 
+	#velocity.x = 0
+	#if Input.is_action_pressed("move_right"):
+		#velocity.x += MOVE_SPEED
+	#if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#this is 
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	# Implement your shooting logic here
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+	pass
+
+# Called when the character collides with a floor
+func _on_FloorDetector_area_entered(area):
+	can_jump = true
+
+# Called when the character leaves a floor
+func _on_FloorDetector_area_exited(area):
+	can_jump = false
+}
+
+extends KinematicBody2D
+
+# Character properties
+const MOVE_SPEED = 150
+const GRAVITY = 800
+const JUMP_FORCE = -500
+
+# Abilities
+var can_jump = true
+var can_shoot = true
+
+#character velocity is vector two
+# Character movement
+var velocity = Vector2()
+
+func _physics_process(delta):
+	
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+
+	# Move left/right
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x += MOVE_SPEED
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= MOVE_SPEED
+
+	# Jump high so that the character is ablw to 
+	if can_jump and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_FORCE
+
+	# Shooting
+	if can_shoot and Input.is_action_just_pressed("shoot"):
+		shoot()
+		#velocity for move and 
+	# Apply velocity
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+shooting logic here
+
+	# For example, instantiate a bullet or projectile node
+	# You can also add cooldowns to control shooting rate
+
+
+#
+
+
+
